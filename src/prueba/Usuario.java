@@ -34,13 +34,16 @@ public class Usuario {
         idConfirm = sc.next();
         System.out.println("ingrese contraseña:");
         contraConfirm = sc.next();
-        if (idConfirm.equals(id) && contraConfirm.equals(contra)) {
+        if(idConfirm.equals(id) || contraConfirm.equals(contra)){
+            System.out.println("id o contraseña incorreta");
+        }else if (idConfirm.equals(id) && contraConfirm.equals(contra)) {
             frecuente = true;
             String answer;
             do {
                 System.out.println("Bienvenido " + nombre);
                 System.out.println("tu saldo es: " + balance);
                 System.out.println("1- Recargar " + "\n" + "2- viajar");
+                System.out.println("ingrese una opcion: ");
                 int op = sc.nextInt();
                 switch (op) {
                     case 1:
@@ -50,7 +53,7 @@ public class Usuario {
                         Viajar();
                         break;
                     default:
-                        System.out.println("ingrese una opcion valida");
+                            System.out.println("ingrese una opcion valida");
                 }
                 System.out.println("Quieres recargar o viajar? s/n");
                 answer = sc.next();
@@ -90,8 +93,8 @@ public class Usuario {
                 default:
                     System.out.println("seleccione una opcion valida");
             }
-        } else if (balance < 3500 && balance >= 0) {
-            balance = balance - 3500;
+        } else if (balance < 3600 && balance >= 0) {
+            balance = balance - 3600;
             System.out.println("saldo: " + balance);
             System.out.println("te prestamos un pasaje");
         } else {
